@@ -5,7 +5,7 @@
 A series of five 2-hour technology workshops for students ages **12–14** with minimal prior programming experience. Workshops mix instruction and hands-on work, slightly build on one another, but are designed to be **primarily independent** so students may join at any point.
 
 **Branding:** Lansing Tech Studio  
-**Theme:** Robot persona (“LTS-BOT”) guiding students through missions  
+**Theme:** Robot persona ("LTS-BOT") guiding students through missions  
 **Platforms:** Windows laptops (primary), Chromebooks (secondary)
 
 ---
@@ -51,7 +51,7 @@ Students will:
 - Use a multi-device password manager
 - Run basic Bash commands
 - Make a git commit
-- Open a pull request to a shared **“Hall of Champions”** file
+- Open a pull request to a shared **"Hall of Champions"** file
 
 ### All Other Workshops
 
@@ -60,7 +60,7 @@ Students will:
 - Fork the starter repository
 - Make multiple commits and pushes
 - Complete a minimal working project
-- Leave with documented “next steps” for independent learning
+- Leave with documented "next steps" for independent learning
 
 ---
 
@@ -172,7 +172,7 @@ Includes:
 ### Robot Persona: LTS-BOT
 
 - Curious, literal, encouraging
-- Frames bugs as “sensor data”
+- Frames bugs as "sensor data"
 - Workshops are framed as **missions** upgrading robot capabilities
 
 ### Assessment
@@ -187,7 +187,7 @@ Includes:
 - Expect uneven pacing and technical hiccups
 - Students should have pre-workshop setup access
 - Activities must degrade gracefully
-- Worst-case fallback: instructor acts as the “computer” using a whiteboard
+- Worst-case fallback: instructor acts as the "computer" using a whiteboard
 
 ---
 

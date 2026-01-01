@@ -1,7 +1,7 @@
 # Tech Fundamentals - 2 hour Workshop
 
 **Audience:** Beginners with little to no programming experience
-**Theme:** _"How computers actually work - and how you control them"_
+**Theme:** _"How computers actually work, and how you control them"_
 
 ## 1. Workshop Goals
 
