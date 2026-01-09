@@ -1,8 +1,15 @@
 <ul class="nav-list">
   {% for item in site.navigation %}
-  <li class="nav-item{% if page.url == item.url %} active{% endif %}">
-    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  <li class="nav-item{% if page.url == item.url %} active{% endif %}{% if item.subnav %} has-subnav{% endif %}">
     {% if item.subnav %}
+    <div class="nav-item-header">
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      <button class="nav-toggle-btn" aria-label="Toggle {{ item.title }} submenu" aria-expanded="false">
+        <svg class="nav-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
     <ul class="nav-subnav">
       {% for subitem in item.subnav %}
       <li class="nav-subitem">
@@ -23,6 +30,8 @@
       </li>
       {% endfor %}
     </ul>
+    {% else %}
+    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
     {% endif %}
   </li>
   {% endfor %}

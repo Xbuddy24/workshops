@@ -65,6 +65,27 @@
       document.getElementById('sidebar').classList.toggle('open');
       this.classList.toggle('active');
     });
+
+    // Collapsible subnav toggle
+    document.querySelectorAll('.nav-toggle-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const navItem = this.closest('.nav-item');
+        const isExpanded = navItem.classList.toggle('expanded');
+        this.setAttribute('aria-expanded', isExpanded);
+      });
+    });
+
+    // Auto-expand nav items that contain the current page or are active
+    document.querySelectorAll('.nav-item.has-subnav').forEach(function(navItem) {
+      const subnav = navItem.querySelector('.nav-subnav');
+      const isActive = navItem.classList.contains('active') || (subnav && subnav.querySelector('.active'));
+      if (isActive) {
+        navItem.classList.add('expanded');
+        const btn = navItem.querySelector('.nav-toggle-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   </script>
 </body>
 </html>
