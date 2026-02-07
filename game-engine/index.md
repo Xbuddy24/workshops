@@ -47,60 +47,10 @@ A student is successful if they can say:
 ### Primary Path (Recommended)
 
 - Use the **web editor**: https://editor.godotengine.org/releases/latest/
+  - If you haave a local install of Godot, you can use that instead.
 - Download the starter project zip from this repo:
   - `game-engine/starter-code/platformer-starter-godot4.zip` (provided by instructor)
 
 ### Fallback Path
 
-- Install Godot desktop (latest stable 4.x)
-- Import the same starter project zip
-
-## 4. 90-Minute Agenda (Minute-by-Minute)
-
-### 0:00-0:10 - Welcome & Icebreaker
-
-- Prompt: "What is a game mechanic you love?" (jumping, coins, double-jump, etc.)
-- Goal: experiment > perfection
-
-### 0:10-0:20 - Godot Tour: Nodes, Scenes, Assets, Scripts
-
-- What the Scene Tree is
-- What a script is
-- Where sprites/animations live
-
-### 0:20-0:30 - Import the Starter Project + Run It
-
-- Import zip
-- Press Play
-- Confirm: move + jump works, coins disappear, but score is not shown
-
-### 0:30-0:45 - Key Concepts: Physics + Collisions
-
-- CharacterBody2D / collisions / ground
-- Area2D for coin pickups
-
-### 0:45-1:05 - Build Task: Animation States
-
-- Idle vs moving vs jumping
-- Edit GDScript to change the animation
-
-### 1:05-1:15 - Build Task: Flip Direction
-
-- If moving left, face left; if moving right, face right
-
-### 1:15-1:25 - Build Task: Scoring
-
-- Track `score`
-- Update a UI label
-
-### 1:25-1:30 - If Time: Winner Message + Wrap-Up
-
-- Show "You win!" when all coins are collected
-- Share: one thing you changed that felt powerful
-
-## 5. Instructor Guardrails
-
-- Keep the Scene Tree visible often
-- Narrate: "What node are we on? What does it do?"
-- Encourage tiny changes + frequent Play testing
-- Normalize error messages: "errors are clues"
+- Pair with another student who has Godot working
