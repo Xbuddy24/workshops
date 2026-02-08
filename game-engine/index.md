@@ -12,6 +12,7 @@ workshop: Game Engine Tools
 - Recording (coming soon)
 - [Slides]({{ site.baseurl }}/game-engine/slides.html)
 - Resources:
+  - [How to Build the Starter Project]({{ site.baseurl }}/game-engine/starter-code/build-starter-project)
   - [Glossary]({{ site.baseurl }}/game-engine/resources/glossary)
   - [Next Steps After Game Engine Tools]({{ site.baseurl }}/game-engine/resources/next-steps)
 - Student Handouts:
