@@ -234,6 +234,14 @@ Run the game.
 6. Add a Physics Layer to the TileSet and set the collision shape for the tiles you want to use as platforms.
 7. Use the TileMapLayer by switching to the TileMap tab to paint platforms in the level.
 
+### F3) Add RichTextLabel for score
+
+1. In the Main scene, under `Main`, add a **CanvasLayer** named: `UI`
+2. Under `UI`, add a **RichTextLabel** named: `ScoreLabel`
+3. Position `ScoreLabel` in the top left corner and set the text to: `
+Score: 0`
+4. You can later add logic to update the score as gems are collected.
+
 ## Part F — Prepare the zip for students
 
 Goal: create `platformer-starter-godot4.zip`.
