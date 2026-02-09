@@ -12,7 +12,7 @@ workshop: Game Engine Tools
 - Recording (coming soon)
 - [Slides]({{ site.baseurl }}/game-engine/slides.html)
 - Resources:
-  - [How to Build the Starter Project]({{ site.baseurl }}/game-engine/starter-code/build-starter-project)
+  - [How to Build the Starter Project]({{ site.baseurl }}/game-engine/starter-code/build-starter-project) ([Video▶️](https://youtu.be/V02-xhsohVY))
   - [Starter Project Zip]({{ site.baseurl }}/game-engine/starter-code/platformer-starter-godot4.zip)
   - [Glossary]({{ site.baseurl }}/game-engine/resources/glossary)
   - [Next Steps After Game Engine Tools]({{ site.baseurl }}/game-engine/resources/next-steps)

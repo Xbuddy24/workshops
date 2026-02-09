@@ -43,4 +43,4 @@ If you get stuck, refresh and try importing again.
 ---
 
 Want to build the starter project yourself? Follow the step-by-step guide in
-[./starter-code/build-starter-project.md](./starter-code/build-starter-project.md).
+[./starter-code/build-starter-project.md](./starter-code/build-starter-project.md) ([Video▶️](https://youtu.be/V02-xhsohVY)).

@@ -19,7 +19,7 @@ Pick one small upgrade:
 - Add a "restart" button when you fall
 - Add a main menu scene
 
-You can find the instructions for how the starter project was made in [build-starter-project.md](../starter-code/build-starter-project.md).
+You can find the instructions for how the starter project was made in [build-starter-project.md](../starter-code/build-starter-project.md) ([Video▶️](https://youtu.be/V02-xhsohVY)).
 
 ## 2) Learn More Godot
 
