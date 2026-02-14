@@ -387,9 +387,10 @@ In VS Code integrated terminal (View → Terminal):
 
 ```bash
 # Test Node.js
-node test.js
+node $(find . -name "hello.js" -print -quit)
+python $(find . -name "hello.py" -print -quit)
 
-# Test other tools
+# Show versions of installed tools
 node --version
 python3 --version
 git --version
