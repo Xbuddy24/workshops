@@ -42,15 +42,19 @@ Learn JavaScript fundamentals: variables, data types, console.log, and string co
 Build a live message box using text inputs, dropdowns, and JavaScript-driven
 updates to the page.
 
-[View Workshop ->]({{ site.baseurl }}/interactive-html-javascript/)
+[View Workshop →]({{ site.baseurl }}/interactive-html-javascript/)
 
 ---
 
-### Python Coding Introduction
+### [Python Coding Introduction]({{ site.baseurl }}/python-intro/)
 
-**Date:** February 19, 2026  
-**Duration:** 2 hours  
-*Coming soon*
+**Date:** February 19, 2026
+**Duration:** 2 hours
+**Theme:** *"Talking to your computer - your first Python conversations"*
+
+Learn Python fundamentals: variables, data types, print(), input(), f-strings, and if/else decisions. Build an interactive text adventure.
+
+[View Workshop →]({{ site.baseurl }}/python-intro/)
 
 ---
 

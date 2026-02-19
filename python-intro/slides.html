@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Python Coding Introduction</title>
+
+	<link rel="stylesheet" href="../assets/revealjs/reset.css">
+	<link rel="stylesheet" href="../assets/revealjs/reveal.css">
+	<link rel="stylesheet" href="../assets/revealjs/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="../assets/revealjs/plugin/highlight/monokai.css">
+	<style>
+		.outlined {
+			text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black !important;
+		}
+
+		div.slide-background-content {
+			background-size: 900px 900px;
+			background-repeat: no-repeat;
+			background-position: center center;
+			opacity: 0.05;
+			background-image: url("../assets/images/logo-transparent.png");
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-image="../assets/images/logo-transparent.png" data-background-size="900px 900px"
+				data-background-opacity="0.7" data-background-repeat="no-repeat"
+				data-background-position="center center">
+				<h2 class="outlined">Python Coding Introduction</h2>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p class="outlined">by Brendon Thiede</p>
+			</section>
+
+			<section>
+				<h2>Student Goals</h2>
+				<ul>
+					<li>Understand what Python is and why it's popular</li>
+					<li>Create variables to store information</li>
+					<li>Use print() and input() for two-way conversations</li>
+					<li>Build an interactive text adventure</li>
+				</ul>
+			</section>
+
+			<!-- 0:00-0:10 Welcome & Icebreaker -->
+			<section>
+				<h2>Icebreaker</h2>
+				<p>If your computer could talk back to you, what's the first thing you'd want it to say?</p>
+			</section>
+
+			<!-- 0:10-0:25 Setup & Fork/Clone -->
+			<section>
+				<section>
+					<h2>Let's Get Set Up</h2>
+					<p>Time to get our starter code!</p>
+				</section>
+				<section>
+					<h3>Step 1: Fork the Repository</h3>
+					<ol>
+						<li>Go to the workshop repository on GitHub</li>
+						<li>Click the "Fork" button (top right)</li>
+						<li>This creates your own copy!</li>
+					</ol>
+					<p><img src="../assets/images/workshops-qr.png" alt="https://github.com/Lansing-Tech-Studio/workshops" height="185"></p>
+					<div style="position: absolute; bottom: -100px; right: -530px; width: 2000px;">
+						<h5>https://github.com/Lansing-Tech-Studio/workshops</h5>
+					</div>
+				</section>
+				<section>
+					<h3>Already Have a Fork?</h3>
+					<p>If you forked for a previous workshop, update it first:</p>
+					<ol>
+						<li>Go to your fork on GitHub</li>
+						<li>Click <strong>Sync fork</strong> → <strong>Update branch</strong></li>
+						<li>Then run <code>git pull</code> in your local folder</li>
+					</ol>
+					<p><em>See the <a href="../SETUP#section-4-cloning-the-workshop-repository">Setup Guide</a> for details</em></p>
+				</section>
+				<section>
+					<h3>Step 2: Clone to Your Computer</h3>
+					<pre><code data-trim>
+git clone https://github.com/YOUR-USERNAME/workshops.git
+cd workshops/
+					</code></pre>
+				</section>
+				<section>
+					<h3>Step 3: Open in VS Code</h3>
+					<pre><code data-trim>
+code .
+					</code></pre>
+					<p>This opens VS Code in the current folder</p>
+				</section>
+				<section>
+					<h3>Step 4: Verify Python</h3>
+					<p>Open the integrated terminal (View → Terminal)</p>
+					<pre><code data-trim>
+python --version
+					</code></pre>
+					<p>You should see Python 3.10 or higher!</p>
+					<p><em>On some systems, use <code>python3 --version</code> instead</em></p>
+				</section>
+				<section>
+					<h3>Step 5: Run Hello World</h3>
+					<pre><code data-trim>
+cd python-intro/starter-code
+python hello.py
+					</code></pre>
+					<p>You should see a welcome message!</p>
+					<p><em>If it works, you're ready to code!</em></p>
+				</section>
+			</section>
+
+			<!-- 0:25-0:45 What is Python & Variables -->
+			<section>
+				<section>
+					<h2>What is Python?</h2>
+				</section>
+				<section>
+					<h3>Python is Everywhere</h3>
+					<ul>
+						<li>Web apps (Instagram, YouTube, Spotify)</li>
+						<li>Science and data analysis</li>
+						<li>AI and machine learning</li>
+						<li>Games and automation</li>
+					</ul>
+					<p><em>One of the most popular programming languages in the world</em></p>
+				</section>
+				<section>
+					<h3>Why Python?</h3>
+					<ul>
+						<li>Reads like English</li>
+						<li>No curly braces or semicolons needed</li>
+						<li>Great for beginners AND professionals</li>
+						<li>Huge community and tons of resources</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Python vs JavaScript</h3>
+					<p>Both are great! Just different tools for different jobs.</p>
+					<pre><code data-trim class="language-javascript">
+// JavaScript
+let name = "Alex";
+console.log("Hello, " + name);
+					</code></pre>
+					<pre><code data-trim class="language-python">
+# Python
+name = "Alex"
+print(f"Hello, {name}")
+					</code></pre>
+					<p><em>Python is often considered easier to read</em></p>
+				</section>
+				<section>
+					<h2>Variables</h2>
+					<p>Labeled boxes for storing information</p>
+				</section>
+				<section>
+					<h3>Why Do We Need Variables?</h3>
+					<p>To remember information and use it later!</p>
+					<ul>
+						<li>A player's name</li>
+						<li>A score that changes</li>
+						<li>A choice the user made</li>
+						<li>Story elements</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Creating Variables in Python</h3>
+					<p>Just pick a name and use <code>=</code></p>
+					<pre><code data-trim class="language-python">
+name = "Scooby"
+snacks = 7
+pi = 3.14
+					</code></pre>
+					<p><em>No special keywords needed - Python figures it out!</em></p>
+				</section>
+				<section>
+					<h3>Naming Rules</h3>
+					<ul>
+						<li>Start with a letter or underscore</li>
+						<li>No spaces (use snake_case instead)</li>
+						<li>Can't use special keywords (like <code>print</code>, <code>if</code>)</li>
+						<li>Be descriptive!</li>
+					</ul>
+					<pre><code data-trim class="language-python">
+# Good names
+player_name = "Sam"
+current_score = 100
+
+# Bad names
+x = "Sam"        # What is x?
+n = "Sam"         # Which name?
+my name = "Sam"   # Has a space!
+					</code></pre>
+				</section>
+				<section>
+					<h3>Data Types</h3>
+					<p>Different kinds of information</p>
+				</section>
+				<section>
+					<h3>Strings</h3>
+					<p>Text wrapped in quotes</p>
+					<pre><code data-trim class="language-python">
+greeting = "Hello, world!"
+name = "Scooby"
+story = 'Once upon a time...'
+					</code></pre>
+					<p><em>Use double quotes " " or single quotes ' '</em></p>
+				</section>
+				<section>
+					<h3>Numbers</h3>
+					<p>Integers (whole) and floats (decimal)</p>
+					<pre><code data-trim class="language-python">
+age = 13          # integer (int)
+score = 100       # integer
+pi = 3.14         # float
+temperature = 72.5  # float
+					</code></pre>
+					<p><em>Can do math with numbers!</em></p>
+				</section>
+				<section>
+					<h3>Booleans</h3>
+					<p>True or False values (capitalized!)</p>
+					<pre><code data-trim class="language-python">
+is_learning = True
+has_finished = False
+loves_python = True
+					</code></pre>
+					<p><em>Great for yes/no questions!</em></p>
+				</section>
+				<section>
+					<h3>Activity: Your First Variables</h3>
+					<p>Open <code>adventure.py</code> and create variables about yourself:</p>
+					<pre><code data-trim class="language-python">
+my_name = "put your name here"
+my_age = 0  # put your age
+is_learning_python = True
+					</code></pre>
+					<p>Run it: <code>python adventure.py</code></p>
+				</section>
+			</section>
+
+			<!-- 0:45-1:05 print(), input(), f-strings -->
+			<section>
+				<section>
+					<h2>print()</h2>
+					<p>Seeing what your program is doing</p>
+				</section>
+				<section>
+					<h3>Why print()?</h3>
+					<ul>
+						<li>Displays information in the terminal</li>
+						<li>Shows you what variables contain</li>
+						<li>Helps you debug (find mistakes)</li>
+						<li>Your programming superpower!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Using print()</h3>
+					<pre><code data-trim class="language-python">
+name = "Alex"
+print(name)
+					</code></pre>
+					<p>Output:</p>
+					<pre><code data-trim>
+Alex
+					</code></pre>
+				</section>
+				<section>
+					<h3>Printing Different Things</h3>
+					<pre><code data-trim class="language-python">
+print("Hello!")
+print(42)
+print(True)
+print("Score:", 100)
+					</code></pre>
+					<p>Output:</p>
+					<pre><code data-trim>
+Hello!
+42
+True
+Score: 100
+					</code></pre>
+				</section>
+				<section>
+					<h2>f-strings</h2>
+					<p>The easy way to mix variables and text</p>
+				</section>
+				<section>
+					<h3>How f-strings Work</h3>
+					<p>Put <code>f</code> before the quotes, variables in <code>{}</code></p>
+					<pre><code data-trim class="language-python">
+name = "Alex"
+age = 13
+print(f"My name is {name}")
+print(f"I am {age} years old")
+					</code></pre>
+					<p>Output:</p>
+					<pre><code data-trim>
+My name is Alex
+I am 13 years old
+					</code></pre>
+					<p><em>Much cleaner than concatenation!</em></p>
+				</section>
+				<section>
+					<h2>input()</h2>
+					<p>Asking the user questions</p>
+				</section>
+				<section>
+					<h3>How input() Works</h3>
+					<p>Shows a prompt, waits for the user to type, returns their answer</p>
+					<pre><code data-trim class="language-python">
+name = input("What is your name? ")
+print(f"Hello, {name}!")
+					</code></pre>
+					<p>Output:</p>
+					<pre><code data-trim>
+What is your name? Alex
+Hello, Alex!
+					</code></pre>
+				</section>
+				<section>
+					<h3>Important: input() Returns a String</h3>
+					<p>Even if the user types a number, it's text!</p>
+					<pre><code data-trim class="language-python">
+# This is a string "13", not the number 13
+age = input("How old are you? ")
+
+# Convert to a number with int()
+age = int(input("How old are you? "))
+					</code></pre>
+					<p><em>Use <code>int()</code> for whole numbers, <code>float()</code> for decimals</em></p>
+				</section>
+				<section>
+					<h3>Activity: Interactive Greeting</h3>
+					<p>Add to your <code>adventure.py</code>:</p>
+					<pre><code data-trim class="language-python">
+name = input("What is your name? ")
+color = input("What is your favorite color? ")
+print(f"Hello, {name}!")
+print(f"Great choice - {color} is awesome!")
+					</code></pre>
+					<p>Run it: <code>python adventure.py</code></p>
+				</section>
+			</section>
+
+			<!-- 1:05-1:15 Break -->
+			<section>
+				<section>
+					<h2>Break Time!</h2>
+					<p>Stretch, move around, grab some water</p>
+					<p>Back in 10 minutes!</p>
+				</section>
+				<section>
+					<h2>Would you rather...</h2>
+					<ul>
+						<li>Have a robot that cleans your room, or one that does your homework?</li>
+						<li>Be able to talk to animals, or speak every human language?</li>
+						<li>Build a video game, or build a website?</li>
+					</ul>
+				</section>
+			</section>
+
+			<!-- 1:15-1:25 Project Introduction -->
+			<section>
+				<section>
+					<h2>Your Mission</h2>
+					<p>Create an interactive text adventure!</p>
+				</section>
+				<section>
+					<h3>What is a Text Adventure?</h3>
+					<ul>
+						<li>A story where the player makes choices</li>
+						<li>The program asks questions and responds</li>
+						<li>Different choices lead to different outcomes</li>
+						<li>Like a choose-your-own-adventure book!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>New Concept: if / else</h3>
+					<p>Making decisions in code</p>
+					<pre><code data-trim class="language-python">
+choice = input("Go left or right? ")
+
+if choice == "left":
+    print("You found a treasure chest!")
+else:
+    print("You found a friendly dragon!")
+					</code></pre>
+					<p><em><code>==</code> checks if two things are equal</em></p>
+				</section>
+				<section>
+					<h3>Indentation Matters!</h3>
+					<p>Python uses spaces to group code together</p>
+					<pre><code data-trim class="language-python">
+if choice == "left":
+    print("This is inside the if")
+    print("This is also inside the if")
+
+print("This is outside - always runs")
+					</code></pre>
+					<p><em>Use 4 spaces (or press Tab) to indent</em></p>
+				</section>
+				<section>
+					<h3>Example Adventure</h3>
+					<pre><code data-trim class="language-python">
+hero = input("What is your name, adventurer? ")
+print(f"{hero} enters the Dark Forest...")
+
+choice = input("Do you take the path or the river? ")
+
+if choice == "path":
+    print(f"{hero} found a hidden village!")
+else:
+    print(f"{hero} discovered a waterfall!")
+					</code></pre>
+				</section>
+				<section>
+					<h3>Your Template</h3>
+					<p>Open <code>adventure.py</code> - it has TODO comments to guide you!</p>
+					<p>Build your adventure step by step:</p>
+					<ol>
+						<li>Set up variables</li>
+						<li>Ask the player's name</li>
+						<li>Create the opening</li>
+						<li>Add a choice with if/else</li>
+						<li>Write the ending</li>
+					</ol>
+				</section>
+			</section>
+
+			<!-- 1:25-1:45 Hands-On Time -->
+			<section>
+				<section>
+					<h2>Hands-On: Build Your Adventure!</h2>
+				</section>
+				<section>
+					<h3>Getting Help</h3>
+					<ul>
+						<li>Run it frequently with small changes: <code>python adventure.py</code></li>
+						<li>Read the error messages - they're helpful!</li>
+						<li>Check for missing colons after if/else</li>
+						<li>Check your indentation (4 spaces)</li>
+						<li>Ask an instructor</li>
+						<li>Help your neighbor</li>
+					</ul>
+					<p><em>Everyone makes mistakes - that's how we learn!</em></p>
+				</section>
+				<section>
+					<h3>If You Finish Early</h3>
+					<ul>
+						<li>See if you can help a neighbor</li>
+						<li>Add more choices with <code>elif</code></li>
+						<li>Track a score variable</li>
+						<li>Ask for more user inputs</li>
+						<li>Add more story branches</li>
+						<li>Make your adventure longer!</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Remember</h3>
+					<p><strong>Your adventure is unique!</strong></p>
+					<p>There's no "right" story - be creative!</p>
+					<p>The goal is to practice variables, input, and if/else</p>
+				</section>
+			</section>
+
+			<!-- 1:45-1:55 Git & Show-and-Tell -->
+			<section>
+				<section>
+					<h2>Save Your Work</h2>
+					<p>Let's commit to Git!</p>
+				</section>
+				<section>
+					<h3>Git Commands</h3>
+					<pre><code data-trim>
+git add .
+git commit -m "Complete text adventure"
+git push
+					</code></pre>
+					<p>Now your work is saved on GitHub!</p>
+				</section>
+				<section>
+					<h2>Show & Tell</h2>
+					<p>Who wants to share their adventure?</p>
+				</section>
+			</section>
+
+			<!-- 1:55-2:00 Wrap-Up -->
+			<section>
+				<section>
+					<h2>Wrap-Up</h2>
+				</section>
+				<section>
+					<h3>What We Learned</h3>
+					<ul>
+						<li>Python is popular and reads like English</li>
+						<li>Variables store information</li>
+						<li>Data types: strings, integers, floats, booleans</li>
+						<li>print() displays output</li>
+						<li>input() gets user input</li>
+						<li>f-strings format text with variables</li>
+						<li>if/else makes decisions</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Reflection</h3>
+					<p>What surprised you about Python?</p>
+					<p>What would you add to your adventure with more time?</p>
+				</section>
+				<section>
+					<h3>Coming Up Next</h3>
+					<p>Advanced Python Coding</p>
+					<p>Your code will use <strong>loops</strong> to repeat actions!</p>
+					<p>You'll use <strong>lists</strong> to store collections of data!</p>
+				</section>
+				<section>
+					<h3>Keep Practicing</h3>
+					<ul>
+						<li>Expand your adventure</li>
+						<li>Experiment with variables</li>
+						<li>Try the Python REPL: type <code>python</code></li>
+						<li>Check out the Next Steps guide</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>Questions?</section>
+			<section data-background-image="../assets/images/logo-transparent.png" data-background-size="900px 900px"
+				data-background-opacity="1" data-background-repeat="no-repeat" data-background-position="center center">
+				<h2 class="outlined"><em>Thank you!</em></h2>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+			</section>
+		</div>
+	</div>
+
+	<script src="../assets/revealjs/reveal.js"></script>
+	<script src="../assets/revealjs/plugin/notes/notes.js"></script>
+	<script src="../assets/revealjs/plugin/markdown/markdown.js"></script>
+	<script src="../assets/revealjs/plugin/highlight/highlight.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>

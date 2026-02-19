@@ -9,7 +9,7 @@ workshop: Game Engine Tools
 **Audience:** Beginners (ages ~10-14) \
 **Theme:** _"Using a real game engine to build a small 2D platformer"_
 
-- Recording (coming soon)
+- [Recording ▶️](https://youtu.be/Tc3QxoVZRzw)
 - [Slides]({{ site.baseurl }}/game-engine/slides.html)
 - Resources:
   - [How to Build the Starter Project]({{ site.baseurl }}/game-engine/starter-code/build-starter-project) ([Video▶️](https://youtu.be/V02-xhsohVY))
@@ -49,9 +49,9 @@ A student is successful if they can say:
 ### Primary Path (Recommended)
 
 - Use the **web editor**: <https://editor.godotengine.org/releases/latest/>
-  - If you haave a local install of Godot, you can use that instead.
+  - If you have a local install of Godot, you can use that instead.
 - Download the starter project zip from this repo:
-  - `game-engine/starter-code/platformer-starter-godot4.zip`
+  - [`game-engine/starter-code/platformer-starter-godot4.zip`](https://github.com/Lansing-Tech-Studio/workshops/raw/refs/heads/main/game-engine/starter-code/platformer-starter-godot4.zip)
 
 ### Fallback Path
 

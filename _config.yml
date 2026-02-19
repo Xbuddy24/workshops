@@ -118,6 +118,29 @@ navigation:
             url: /game-engine/instructor-notes/common-questions
           - title: Timing Guide
             url: /game-engine/instructor-notes/timing-guide
+  - title: Python Coding Introduction
+    url: /python-intro/
+    subnav:
+      - title: Slides
+        url: /python-intro/slides.html
+      - title: Resources
+        items:
+          - title: Glossary
+            url: /python-intro/resources/glossary
+          - title: Next Steps
+            url: /python-intro/resources/next-steps
+      - title: Student Handouts
+        items:
+          - title: Vocabulary
+            url: /python-intro/student-handouts/vocabulary
+          - title: Worksheet
+            url: /python-intro/student-handouts/worksheet
+      - title: Instructor Notes
+        items:
+          - title: Common Questions
+            url: /python-intro/instructor-notes/common-questions
+          - title: Timing Guide
+            url: /python-intro/instructor-notes/timing-guide
   - title: Learning Checks
     url: /learning-checks
 
