@@ -1,1 +1,4 @@
 _site
+# Vendored or generated files for account-creator
+scripts/eff_large_wordlist.txt
+scripts/accounts.json
