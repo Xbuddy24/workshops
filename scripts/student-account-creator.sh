@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Hard-coded groups to add users to
-GROUPS=(workshop)
+STUDENT_GROUPS=("workshop")
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTFILE="$SCRIPT_DIR/accounts.json"
@@ -37,11 +37,25 @@ if [ "$NUM" -le 0 ]; then
 fi
 
 # Ensure groups exist
-for g in "${GROUPS[@]}"; do
+for g in "${STUDENT_GROUPS[@]}"; do
   if ! getent group "$g" >/dev/null; then
     groupadd "$g"
   fi
 done
+
+# Primary group name
+PRIMARY_GROUP_NAME="${STUDENT_GROUPS[0]}"
+echo "Using primary group: $PRIMARY_GROUP_NAME"
+
+exit 0
+
+# Resolve primary GID robustly and fail if not resolvable
+if getent group "$PRIMARY_GROUP_NAME" >/dev/null 2>&1; then
+  PRIMARY_GID=$(getent group "$PRIMARY_GROUP_NAME" | cut -d: -f3)
+else
+  echo "Group $PRIMARY_GROUP_NAME not found and could not be created" >&2
+  exit 1
+fi
 
 # EFF Diceware wordlist (cached local copy). Falls back to a small built-in list if download fails.
 WORDLIST_URL="https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt"
@@ -61,7 +75,6 @@ load_wordlist() {
   if [ -f "$WORDLIST_FILE" ]; then
     # EFF list format: code <tab> word
     mapfile -t WORDS < <(awk '{print $2}' "$WORDLIST_FILE")
-    # ensure the calling user owns the vendored/downloaded file
     chown "$OWNER":"$OWNER" "$WORDLIST_FILE" 2>/dev/null || true
   else
     WORDS=(apple river moon star green blue red sun cloud code learn build play jump run fast slow bright quiet loud small big clear stone hill tree house cat dog fox lion bear wolf eagle sail boat car bike train rocket robot pixel domino canvas garden music color math science logic debug)
@@ -87,21 +100,18 @@ rand_index() {
 }
 
 gen_passphrase() {
-  # pick three random words
   local i1 i2 i3 w1 w2 w3 pos num
   i1=$(rand_index)
   i2=$(rand_index)
   i3=$(rand_index)
-  # avoid duplicates by simple re-rolls
   while [ "$i2" -eq "$i1" ]; do i2=$(rand_index); done
   while [ "$i3" -eq "$i1" ] || [ "$i3" -eq "$i2" ]; do i3=$(rand_index); done
   w1=$(capitalize "${WORDS[$i1]}")
   w2=$(capitalize "${WORDS[$i2]}")
   w3=$(capitalize "${WORDS[$i3]}")
 
-  # append a random number to one of the words
   pos=$((RANDOM % 3))
-num=$((RANDOM % 10))
+  num=$((RANDOM % 900 + 100))
   case "$pos" in
     0) w1="${w1}${num}" ;;
     1) w2="${w2}${num}" ;;
@@ -112,7 +122,6 @@ num=$((RANDOM % 10))
 }
 
 escape_json() {
-  # minimal JSON string escaper for our expected characters
   local s="$1"
   s=${s//\\/\\\\}
   s=${s//\"/\\\"}
@@ -128,17 +137,24 @@ for i in $(seq 1 "$NUM"); do
   password="$(gen_passphrase)"
 
   if id -u "$username" >/dev/null 2>&1; then
-    usermod -a -G "${GROUPS[*]}" "$username" || true
-    echo "Updating password for existing user $username"
+    # Ensure the user's primary group and supplementary groups are correct.
+    current_gid="$(id -g "$username")"
+    groups_list="$(id -nG "$username")"
+    if [ "$current_gid" != "$PRIMARY_GID" ] || ! echo "$groups_list" | grep -qw "$PRIMARY_GROUP_NAME"; then
+      # Replace primary and supplementary groups to enforce policy (use numeric GID)
+      usermod -g "$PRIMARY_GID" -G "${STUDENT_GROUPS[*]}" "$username" || true
+      echo "Fixed groups for existing user $username (set GID $PRIMARY_GID)"
+    else
+      echo "User $username already has correct groups"
+    fi
   else
-    useradd -m -s /bin/bash -G "${GROUPS[*]}" "$username"
-    echo "Created user $username"
+    # create the user with the primary group set by numeric GID
+    useradd -m -s /bin/bash -g "$PRIMARY_GID" -G "${STUDENT_GROUPS[*]}" "$username"
+    echo "Created user $username with primary group $PRIMARY_GROUP_NAME (GID $PRIMARY_GID)"
   fi
 
-  # set the password
   echo "$username:$password" | chpasswd
 
-  # build JSON entry
   juser=$(escape_json "$username")
   jpass=$(escape_json "$password")
   if [ "$first" = true ]; then
@@ -151,10 +167,8 @@ done
 
 echo -e "\n]" >> "$tmpfile"
 
-# replace the outfile atomically
 mv "$tmpfile" "$OUTFILE"
 chmod 600 "$OUTFILE"
-# ensure the calling user owns the generated accounts file
 chown "$OWNER":"$OWNER" "$OUTFILE" 2>/dev/null || true
 
 echo "Wrote $NUM accounts to $OUTFILE"
